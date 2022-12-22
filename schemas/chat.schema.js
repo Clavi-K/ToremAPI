@@ -6,7 +6,7 @@ const { Schema, model } = require("mongoose")
 
 /* ----- DATABASE SCHEMA ----- */
 
-class chatSchema {
+class ChatSchema {
 
     constructor() {
 
@@ -28,5 +28,11 @@ class chatSchema {
     /* ---------- */
 
 }
+
+/* ---------- */
+
+/* ----- SCHEMA EXPORT ----- */
+
+module.exports = new ChatSchema()
 
 /* ---------- */
