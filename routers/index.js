@@ -2,6 +2,8 @@
 
 const express = require("express")
 
+const chatRouter = require("./chat.router")
+
 /* ---------- */
 
 /* ----- MAIN ROUTER ----- */
@@ -12,7 +14,7 @@ const router = express.Router()
 
 /* ----- ROUTERS ----- */
 
-
+router.use("/chats", chatRouter)
 
 /* ---------- */
 

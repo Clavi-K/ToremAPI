@@ -1,7 +1,8 @@
 /* ----- REQUIRED IMPORTS ----- */
 
 const { Schema, model } = require("mongoose")
-const messageModel = require("./message.schema")
+
+const messageModel = require("./message.schema").model
 
 /* ---------- */
 
@@ -23,7 +24,7 @@ class LocationMessageSchema {
     /* ----- METHODS ----- */
 
     async create(lMessage) {
-        await this.model.create(lMessage)
+        return await this.model.create(lMessage)
     }
 
     /* ---------- */

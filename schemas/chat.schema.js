@@ -12,7 +12,7 @@ class ChatSchema {
 
         const schema = new Schema({
             isFavourite: { type: Boolean, required: true },
-            customerId: { type: Schema.Types.ObjectId, ref: "Customer", required: true }
+            customerId: { type: Schema.Types.ObjectId, ref: "Customer", required: true },
         })
 
         this.model = model("Chat", schema)
@@ -22,7 +22,19 @@ class ChatSchema {
     /* ----- METHODS ----- */
 
     async create(chat) {
-        await this.model.create(chat)
+        return await this.model.create(chat)
+    }
+
+    async getById(chatId) {
+        return await this.model.findById(chatId)
+    }
+
+    async edit(chatId, chat) {
+        await this.model.updateOne({ _id: chatId }, chat, { upsert: false })
+    }
+
+    async delete(chatId) {
+        await this.model.deleteOne({_id: chatId})
     }
 
     /* ---------- */
