@@ -1,38 +1,36 @@
 /* ----- REQUIRED IMPORTS ----- */
 
 const { Schema, model } = require("mongoose")
+const customerModel = require("./customer.schema")
 
 /* ---------- */
 
 /* ----- DATABASE SCHEMA ----- */
 
-class ChatSchema {
+class VipCustomerSchema {
 
     constructor() {
 
         const schema = new Schema({
-            isFavourite: { type: Boolean, required: true },
-            customerId: { type: Schema.Types.ObjectId, ref: "Customer", required: true }
+            creditCard: { type: String, required: true }
         })
 
-        this.model = model("Chat", schema)
+        this.model = customerModel.discriminator("VipCustomer", schema)
 
     }
 
     /* ----- METHODS ----- */
 
-    async create(chat) {
-        await this.model.create(chat)
+    async create(vCustomer) {
+        await this.model.create(vCustomer)
     }
 
     /* ---------- */
-
 }
 
-/* ---------- */
 
 /* ----- SCHEMA EXPORT ----- */
 
-module.exports = new ChatSchema()
+module.exports = new VipCustomerSchema()
 
 /* ---------- */
