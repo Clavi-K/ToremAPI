@@ -1,7 +1,8 @@
 /* ----- REQUIRED IMPORTS ----- */
 
 const { Schema, model } = require("mongoose")
-const messageModel = require("./message.schema")
+
+const messageModel = require("./message.schema").model
 
 /* ---------- */
 
@@ -22,7 +23,7 @@ class TextMessageSchema {
     /* ----- METHODS ----- */
 
     async create(msg) {
-        await this.model.create(msg)
+        return await this.model.create(msg)
     }
 
     /* ---------- */

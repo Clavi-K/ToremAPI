@@ -1,7 +1,8 @@
 /* ----- REQUIRED IMPORTS ----- */
 
 const { Schema, model } = require("mongoose")
-const customerModel = require("./customer.schema")
+
+const customerModel = require("./customer.schema").model
 
 /* ---------- */
 
@@ -22,7 +23,11 @@ class RegularCustomerSchema {
     /* ----- METHODS ----- */
 
     async create(rCustomer) {
-        await this.model.create(rCustomer)
+        return await this.model.create(rCustomer)
+    }
+
+    async edit(customerId, customer) {
+        await this.model.updateOne({ _id: customerId }, customer, { upsert: false })
     }
 
     /* ---------- */
