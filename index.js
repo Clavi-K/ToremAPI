@@ -59,9 +59,9 @@ mongoose.connect(`${config.atlas.SCHEMA}://${config.atlas.USER}:${config.atlas.P
         })
 
         /* ---------- */
-        
+
         /* ----- APP LISTENING ----- */
-        
+
         app.listen(PORT, () => console.log(`App listening on port: ${PORT}`))
 
         /* ---------- */

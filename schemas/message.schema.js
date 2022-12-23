@@ -6,23 +6,25 @@ const { Schema, model } = require("mongoose")
 
 /* ----- DATABASE SCHEMA ----- */
 
-class CustomerSchema {
+class MessageSchema {
 
     constructor() {
 
         const schema = new Schema({
-            firstName: { type: String, required: true },
-            lastName: { type: String, required: true }
+            timestamp: { type: Date, required: true },
+            isReceived: { type: Boolean, required: true}
         })
 
-        this.model = model("Customer", schema)
+        this.model = model("Message", schema)
 
     }
 
 }
 
+/* ---------- */
+
 /* ----- MODEL EXPORT ----- */
 
-module.exports = new CustomerSchema().model
+module.exports = new MessageSchema().model
 
 /* ---------- */
