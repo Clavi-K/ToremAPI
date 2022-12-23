@@ -43,6 +43,7 @@ module.exports = {
             const messages = await messageSchema.getByChatId(newChat._id.toString())
 
             return {
+                _id: newChat._id,
                 isFavourite: newChat.isFavourite,
                 customer: dbCustomer,
                 messages
@@ -97,7 +98,6 @@ module.exports = {
             await chatSchema.edit(chatId, chat)
 
             await customerSchema.edit(dbChat.customerId, customer)
-
 
         } catch (e) {
             console.log(e)
