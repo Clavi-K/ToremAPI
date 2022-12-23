@@ -3,6 +3,7 @@
 const express = require("express")
 
 const chatRouter = require("./chat.router")
+const messageRouter = require("./message.router")
 
 /* ---------- */
 
@@ -15,6 +16,7 @@ const router = express.Router()
 /* ----- ROUTERS ----- */
 
 router.use("/chats", chatRouter)
+router.use("/messages", messageRouter)
 
 /* ---------- */
 
